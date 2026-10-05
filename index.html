@@ -4,48 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>E19 — Seleção de Imóveis</title>
+  <meta name="theme-color" content="#F8D210">
+  <link rel="icon" type="image/jpeg" href="favicon.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: { gold: '#F8D210', tech: '#B2B2B2', milk: '#F9F9F9', ink: '#1A1A1A' },
+        fontFamily: { display: ['"Space Grotesk"', 'sans-serif'], sans: ['"DM Sans"', 'sans-serif'] }
+      } }
+    }
+  </script>
   <style>
     body { font-family: 'DM Sans', sans-serif; }
+    .field { width:100%; background:#fff; border:1px solid #B2B2B2; border-radius:.75rem; padding:.75rem 1rem; font-size:.875rem; color:#1A1A1A; outline:none; transition:border-color .15s, box-shadow .15s; }
+    .field:focus { border-color:#F8D210; box-shadow:0 0 0 3px rgba(248,210,16,.35); }
+    .lbl { display:block; font-family:'Space Grotesk',sans-serif; font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; font-weight:700; color:#1A1A1A; margin-bottom:.4rem; }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen flex items-center justify-center p-4">
+<body class="bg-milk text-ink min-h-screen flex items-center justify-center p-4">
 
-  <div class="max-w-md w-full bg-white rounded-2xl shadow-xl border border-slate-100 p-6 md:p-8 relative">
-    
-    <!-- Cabeçalho com o Logotipo Oficial E19 -->
-    <div class="mb-6 flex flex-col items-center justify-center text-center">
-      <!-- Logo Vetorial E19 (Barra de três linhas + 19) -->
-      <div class="w-16 h-16 bg-[#F8D210] rounded-xl flex items-center justify-center p-2 mb-3 shadow-sm">
-        <svg viewBox="0 0 100 100" class="w-full h-full text-slate-900 fill-current">
-          <!-- Três barras horizontais formando o E -->
-          <rect x="18" y="28" width="22" height="7" />
-          <rect x="18" y="46.5" width="22" height="7" />
-          <rect x="18" y="65" width="22" height="7" />
-          <!-- O número 1 -->
-          <rect x="50" y="28" width="7" height="44" />
-          <!-- O número 9 -->
-          <path d="M 59 28 H 82 V 72 H 75 V 53 H 59 Z M 66 35 V 46 H 75 V 35 Z" />
-        </svg>
-      </div>
-      <p class="text-xs uppercase tracking-widest text-slate-400 font-bold">Alinhamento de Perfil</p>
-    </div>
+  <main class="max-w-md w-full bg-white rounded-2xl border border-tech/50 shadow-lg p-6 md:p-8">
 
-    <!-- Formspree Form -->
+    <header class="mb-6 flex flex-col items-center text-center">
+      <img src="logo.svg" alt="E19" width="64" height="64" class="w-16 h-16 rounded-xl mb-3">
+      <h1 class="font-display text-xl font-bold tracking-tight">Alinhamento de Perfil</h1>
+      <div class="w-10 h-1 bg-gold rounded-full mt-3"></div>
+    </header>
+
     <form id="formFiltro" action="https://formspree.io/f/xrpezwgo" method="POST" class="space-y-4">
-      
-      <!-- 1. Entrada -->
+      <input type="hidden" name="_subject" value="Novo perfil — E19 Seleção de Imóveis">
+
       <div>
-        <label class="block text-xs uppercase tracking-widest font-bold text-slate-600 mb-1.5">1. Valor disponível para Entrada/Sinal</label>
-        <input type="text" id="valor_entrada" name="valor_entrada" required placeholder="Ex: R$ 30.000,00" 
-               class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100 outline-none transition-all">
+        <label class="lbl" for="valor_entrada">1. Valor disponível para Entrada/Sinal</label>
+        <input type="text" inputmode="numeric" id="valor_entrada" name="valor_entrada" required placeholder="Ex: R$ 30.000,00" class="field">
       </div>
 
-      <!-- 2. Composição de Renda -->
       <div>
-        <label class="block text-xs uppercase tracking-widest font-bold text-slate-600 mb-1.5">2. Composição de Renda / Decisão</label>
-        <select name="composicao_renda" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100 outline-none transition-all">
+        <label class="lbl" for="composicao_renda">2. Composição de Renda / Decisão</label>
+        <select id="composicao_renda" name="composicao_renda" required class="field">
           <option value="" disabled selected>Selecione uma opção...</option>
           <option value="Apenas eu">Apenas eu</option>
           <option value="Com cônjuge/parceiro(a)">Com cônjuge / parceiro(a)</option>
@@ -53,10 +53,9 @@
         </select>
       </div>
 
-      <!-- 3. Pendências -->
       <div>
-        <label class="block text-xs uppercase tracking-widest font-bold text-slate-600 mb-1.5">3. Alguma pendência prévia a resolver?</label>
-        <select name="pendencias" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100 outline-none transition-all">
+        <label class="lbl" for="pendencias">3. Alguma pendência prévia a resolver?</label>
+        <select id="pendencias" name="pendencias" required class="field">
           <option value="" disabled selected>Selecione uma opção...</option>
           <option value="Nenhuma, tudo OK">Nenhuma, tudo certo</option>
           <option value="Análise / Uso do FGTS">Análise / Uso de FGTS</option>
@@ -65,10 +64,9 @@
         </select>
       </div>
 
-      <!-- 4. Prazo de Mudança -->
       <div>
-        <label class="block text-xs uppercase tracking-widest font-bold text-slate-600 mb-1.5">4. Prazo desejado para mudança</label>
-        <select name="prazo_mudanca" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100 outline-none transition-all">
+        <label class="lbl" for="prazo_mudanca">4. Prazo desejado para mudança</label>
+        <select id="prazo_mudanca" name="prazo_mudanca" required class="field">
           <option value="" disabled selected>Selecione uma opção...</option>
           <option value="Imediato (Pronto para morar)">Imediato (Imóvel pronto)</option>
           <option value="Até 12 meses">Até 12 meses</option>
@@ -76,87 +74,69 @@
         </select>
       </div>
 
-      <!-- Campo LGPD / Política de Privacidade -->
       <div class="pt-2">
-        <label class="flex items-start gap-2.5 cursor-pointer text-xs text-slate-500 leading-tight">
-          <input type="checkbox" name="aceite_privacidade" required class="mt-0.5 rounded border-slate-300 text-slate-900 focus:ring-yellow-400">
-          <span>Estou de acordo com a <a href="https://blog.e19.imb.br/politica-privacidade-e19/" target="_blank" class="text-slate-800 underline font-semibold hover:text-yellow-600">Política de Privacidade</a> da E19.</span>
+        <label class="flex items-start gap-2.5 cursor-pointer text-xs text-ink/70 leading-snug">
+          <input type="checkbox" name="aceite_privacidade" required class="mt-0.5 rounded border-tech accent-[#F8D210]">
+          <span>Estou de acordo com a <a href="https://blog.e19.imb.br/politica-privacidade-e19/" target="_blank" rel="noopener" class="text-ink underline font-bold">Política de Privacidade</a> da E19.</span>
         </label>
       </div>
 
-      <!-- Botão Enviar -->
-      <button type="submit" id="btnSubmit" class="w-full bg-[#F8D210] hover:bg-yellow-300 text-slate-900 font-bold text-xs uppercase tracking-widest py-4 rounded-xl shadow-md transition-all active:scale-[0.99] mt-2">
+      <button type="submit" id="btnSubmit" class="w-full bg-gold hover:brightness-95 text-ink font-display font-bold text-xs uppercase tracking-widest py-4 rounded-xl transition active:scale-[0.99] mt-2">
         Enviar e Buscar Imóveis →
       </button>
     </form>
 
-    <!-- Tela de Sucesso + Botão GMN (Oculta por padrão) -->
-    <div id="sucesso" class="hidden text-center py-6 space-y-4">
-      <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto text-xl font-bold">✓</div>
-      <h2 class="text-lg font-bold text-slate-800">Respostas enviadas com sucesso!</h2>
-      <p class="text-xs text-slate-500 leading-relaxed">Já estamos separando as melhores opções para o seu perfil. Enquanto preparamos seu atendimento, nos ajude deixando uma avaliação rápida:</p>
-      
-      <a href="https://g.page/r/CRLpfR04xfRkEBM/review" target="_blank" 
-         class="inline-block w-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-widest py-3.5 rounded-xl transition-all shadow-md">
+    <section id="sucesso" class="hidden text-center py-6 space-y-4" aria-live="polite">
+      <div class="w-12 h-12 bg-gold text-ink rounded-full flex items-center justify-center mx-auto text-xl font-bold">✓</div>
+      <h2 class="font-display text-lg font-bold">Respostas enviadas com sucesso!</h2>
+      <p class="text-sm text-ink/70 leading-relaxed">Já estamos separando as melhores opções para o seu perfil. Enquanto preparamos seu atendimento, nos ajude deixando uma avaliação rápida:</p>
+      <a href="https://g.page/r/CRLpfR04xfRkEBM/review" target="_blank" rel="noopener"
+         class="inline-block w-full bg-ink hover:bg-black text-white font-display font-bold text-xs uppercase tracking-widest py-3.5 rounded-xl transition">
         ⭐ Avaliar no Google Meu Negócio
       </a>
-    </div>
+    </section>
 
-    <!-- Rodapé -->
-    <div class="mt-6 pt-4 border-t border-slate-100 text-center">
-      <a href="https://blog.e19.imb.br/politica-privacidade-e19/" target="_blank" class="text-[10px] uppercase tracking-widest text-slate-400 hover:underline">
+    <footer class="mt-6 pt-4 border-t border-tech/40 text-center">
+      <a href="https://blog.e19.imb.br/politica-privacidade-e19/" target="_blank" rel="noopener" class="font-display text-[10px] uppercase tracking-widest text-ink/50 hover:underline">
         Política de Privacidade E19
       </a>
-    </div>
-
-  </div>
+    </footer>
+  </main>
 
   <script>
-    // Máscara BRL para o campo de entrada
+    // Máscara BRL
     const inputEntrada = document.getElementById('valor_entrada');
     inputEntrada.addEventListener('input', (e) => {
-      let value = e.target.value.replace(/\D/g, '');
-      if (!value) {
-        e.target.value = '';
-        return;
-      }
-      value = (parseInt(value, 10) / 100).toFixed(2) + '';
-      value = value.replace('.', ',');
-      value = value.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
-      e.target.value = 'R$ ' + value;
+      const digits = e.target.value.replace(/\D/g, '');
+      if (!digits) { e.target.value = ''; return; }
+      e.target.value = (parseInt(digits, 10) / 100).toLocaleString('pt-BR', {
+        style: 'currency', currency: 'BRL'
+      }).replace(/\u00a0/g, ' ');
     });
 
-    // Envio do formulário via Fetch (Sem recarregar a tela)
+    // Envio via fetch (sem recarregar)
     const form = document.getElementById('formFiltro');
     const sucesso = document.getElementById('sucesso');
-    const btnSubmit = document.getElementById('btnSubmit');
+    const btn = document.getElementById('btnSubmit');
+    const label = btn.innerText;
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      btnSubmit.innerText = "ENVIANDO...";
-      btnSubmit.disabled = true;
-
-      const formData = new FormData(form);
-      
+      btn.innerText = 'ENVIANDO...';
+      btn.disabled = true;
       try {
-        const response = await fetch(form.action, {
+        const r = await fetch(form.action, {
           method: 'POST',
-          body: formData,
+          body: new FormData(form),
           headers: { 'Accept': 'application/json' }
         });
-
-        if (response.ok) {
-          form.classList.add('hidden');
-          sucesso.classList.remove('hidden');
-        } else {
-          alert("Ocorreu um erro no envio. Tente novamente.");
-          btnSubmit.innerText = "Enviar e Buscar Imóveis →";
-          btnSubmit.disabled = false;
-        }
-      } catch (err) {
-        alert("Erro de conexão. Verifique sua internet.");
-        btnSubmit.innerText = "Enviar e Buscar Imóveis →";
-        btnSubmit.disabled = false;
+        if (!r.ok) throw new Error();
+        form.classList.add('hidden');
+        sucesso.classList.remove('hidden');
+      } catch (_) {
+        alert('Não foi possível enviar. Verifique sua conexão e tente novamente.');
+        btn.innerText = label;
+        btn.disabled = false;
       }
     });
   </script>
