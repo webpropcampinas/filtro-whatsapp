@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E19 Imóveis & Tecnologia — Qualificação Prévia</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"DM Sans"', 'sans-serif'],
+          },
+          colors: {
+            e19: {
+              yellow: '#F8D210',
+              black: '#111827',
+              gray: '#1F2937',
+              lightGray: '#F9FAFB',
+              accent: '#0F172A',
+              success: '#16a34a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: #F8FAFC;
+      color: #1F2937;
+    }
+
+    /* Swiss style design tokens */
+    .swiss-border {
+      border: 1px solid #E2E8F0;
+    }
+
+    .swiss-shadow {
+      box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
+    }
+
+    .swiss-input {
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .swiss-input:focus {
+      border-color: #111827;
+      box-shadow: 0 0 0 3px rgba(248, 210, 16, 0.3);
+    }
+
+    /* Smooth transition for views */
+    .fade-in {
+      animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="min-h-full flex flex-col justify-between items-center p-4 md:p-8">
+
+  <main class="w-full max-w-xl mx-auto my-auto fade-in">
+    
+    <!-- MAIN CARD -->
+    <div class="bg-white rounded-3xl swiss-border swiss-shadow p-6 sm:p-10 relative overflow-hidden">
+      
+      <!-- Top Accent Line (E19 Yellow) -->
+      <div class="absolute top-0 left-0 right-0 h-2 bg-e19-yellow"></div>
+
+      <header class="mb-8 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-slate-100 pb-6">
+        <div>
+          <div class="flex items-center justify-center sm:justify-start gap-1">
+            <span class="text-3xl font-black tracking-tighter text-e19-black">E</span>
+            <span class="text-3xl font-black tracking-tighter text-e19-yellow bg-e19-black px-1.5 py-0.5 rounded-lg">19</span>
+          </div>
+          <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-slate-400 mt-1">Imóveis & Tecnologia</p>
+        </div>
+        <div class="text-right hidden sm:block">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-semibold">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            Atendimento Rápido
+          </span>
+        </div>
+      </header>
+
+      <!-- FORM VIEW -->
+      <div id="formContainer">
+        <div class="mb-6">
+          <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-e19-black">Alinhamento de Perfil</h1>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">Responda às 4 perguntas básicas em menos de 1 minuto para receber as melhores oportunidades filtradas.</p>
+        </div>
+
+        <form id="e19Form" action="https://formspree.io/f/xrpezwgo" method="POST" class="space-y-5">
+          
+          <!-- Nome & Contato (Identificação) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="nome" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                Nome Completo <span class="text-red-500">*</span>
+              </label>
+              <input type="text" id="nome" name="nome" required placeholder="Seu nome"
+                     class="swiss-input w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 outline-none">
+            </div>
+
+            <div>
+              <label for="whatsapp" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                WhatsApp / Telefone <span class="text-red-500">*</span>
+              </label>
+              <input type="tel" id="whatsapp" name="whatsapp" required placeholder="(19) 99999-9999"
+                     class="swiss-input w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 outline-none">
+            </div>
+          </div>
+
+          <!-- Pergunta 1: Entrada -->
+          <div>
+            <label for="valor_entrada" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+              1. Quanto tem disponível para valor de entrada / sinal? <span class="text-red-500">*</span>
+            </label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-semibold text-sm">R$</span>
+              <input type="text" id="valor_entrada" name="valor_entrada" required placeholder="0,00"
+                     class="swiss-input w-full bg-slate-50 border border-slate-200 rounded-xl pl-11 pr-4 py-3 text-sm font-semibold text-slate-800 placeholder-slate-400 outline-none">
+            </div>
+          </div>
+
+          <!-- Pergunta 2: Composição de Renda -->
+          <div>
+            <label for="composicao_renda" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+              2. Além de você, mais alguém participa da decisão ou renda? <span class="text-red-500">*</span>
+            </label>
+            <select id="composicao_renda" name="composicao_renda" required
+                    class="swiss-input w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 outline-none appearance-none cursor-pointer">
+              <option value="" disabled selected>Selecione uma opção...</option>
+              <option value="Apenas eu">Apenas eu</option>
+              <option value="Com cônjuge / parceiro(a)">Com cônjuge / parceiro(a)</option>
+              <option value="Com familiar">Com familiar</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+
+          <!-- Pergunta 3: Pendências Prévias -->
+          <div>
+            <label for="pendencias" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+              3. Tem alguma pendência prévia a resolver antes da compra? <span class="text-red-500">*</span>
+            </label>
+            <select id="pendencias" name="pendencias" required
+                    class="swiss-input w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 outline-none appearance-none cursor-pointer">
+              <option value="" disabled selected>Selecione uma opção...</option>
+              <option value="Nenhuma - tudo OK">Nenhuma - tudo certo</option>
+              <option value="Análise / Uso do FGTS">Análise / Uso do FGTS</option>
+              <option value="Aprovação prévia de crédito">Aprovação prévia de crédito no banco</option>
+              <option value="Venda de outro imóvel/bem">Venda de outro imóvel / bem</option>
+              <option value="Outra pendência">Outra pendência</option>
+            </select>
+          </div>
+
+          <!-- Pergunta 4: Prazo de Mudança -->
+          <div>
+            <label for="prazo_mudanca" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+              4. Quando gostaria de estar morando no imóvel? <span class="text-red-500">*</span>
+            </label>
+            <select id="prazo_mudanca" name="prazo_mudanca" required
+                    class="swiss-input w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-800 outline-none appearance-none cursor-pointer">
+              <option value="" disabled selected>Selecione uma opção...</option>
+              <option value="Imediato / Pronto para morar">Imediato / Pronto para morar</option>
+              <option value="Até 12 meses">Até 12 meses</option>
+              <option value="Na planta / 24+ meses">Na planta / 24+ meses</option>
+            </select>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" id="submitBtn"
+                  class="w-full bg-e19-yellow hover:bg-yellow-400 text-e19-black font-extrabold text-xs uppercase tracking-widest py-4 px-6 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 group mt-6">
+            <span>Enviar e Filtrar Imóveis</span>
+            <i class="fa-solid fa-arrow-right text-sm transition-transform group-hover:translate-x-1"></i>
+          </button>
+        </form>
+      </div>
+
+      <!-- SUCCESS VIEW (Hidden by default) -->
+      <div id="successContainer" class="hidden text-center py-4 fade-in">
+        <div class="w-16 h-16 bg-emerald-100 text-e19-success rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        
+        <h2 class="text-2xl font-bold text-e19-black mb-2">Informações Enviadas!</h2>
+        <p class="text-xs sm:text-sm text-slate-500 max-w-md mx-auto leading-relaxed mb-6">
+          Recebemos suas respostas com sucesso. Nossa equipe já está selecionando os imóveis exatos para o seu perfil.
+        </p>
+
+        <!-- Google Meu Negócio Card -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 mb-6 text-left relative">
+          <div class="flex items-center gap-3 mb-2">
+            <div class="flex text-amber-400 text-sm gap-0.5">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <span class="text-xs font-bold text-slate-700">Avaliação no Google</span>
+          </div>
+          <p class="text-xs text-slate-600 leading-normal mb-3">
+            Sua opinião nos ajuda a continuar evoluindo! Poderia nos deixar uma avaliação rápida de 5 estrelas no Google Meu Negócio da <strong>E19</strong>?
+          </p>
+          <a href="https://g.page/r/SEU_LINK_DIRETO_GMN/review" target="_blank" rel="noopener"
+             class="inline-flex items-center justify-center w-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider py-3 rounded-xl transition-all gap-2">
+            <i class="fa-brands fa-google text-sm"></i>
+            <span>Avaliar E19 no Google</span>
+          </a>
+        </div>
+
+        <!-- WhatsApp Direct Action Button -->
+        <div class="pt-2 border-t border-slate-100">
+          <a href="https://wa.me/551940629091?text=Ol%C3%A1!%20Acabei%20de%20preencher%20o%20formul%C3%A1rio%20de%20qualifica%C3%A7%C3%A3o." target="_blank" rel="noopener"
+             class="inline-flex items-center justify-center w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider py-3.5 rounded-xl transition-all gap-2">
+            <i class="fa-brands fa-whatsapp text-base"></i>
+            <span>Falar Agora no WhatsApp</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- EXPANDABLE IMPLEMENTATION GUIDE -->
+    <div class="mt-8 bg-white rounded-2xl swiss-border p-5 text-left">
+      <button id="toggleGuideBtn" class="w-full flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-600 hover:text-slate-900 transition-colors">
+        <span class="flex items-center gap-2">
+          <i class="fa-solid fa-code text-e19-yellow text-sm"></i>
+          Guia Prático: Como usar em HTML / React
+        </span>
+        <i id="guideIcon" class="fa-solid fa-chevron-down transition-transform"></i>
+      </button>
+
+      <div id="guideContent" class="hidden mt-4 pt-4 border-t border-slate-100 text-xs text-slate-600 space-y-4">
+        <div>
+          <h4 class="font-bold text-slate-800 mb-1">1. Usando no HTML Puro / Hospedagem Simples:</h4>
+          <p class="leading-relaxed">
+            Certifique-se de que a tag <code class="bg-slate-100 px-1 py-0.5 rounded text-slate-800">&lt;form&gt;</code> contenha o atributo <code class="bg-slate-100 px-1 py-0.5 rounded text-slate-800">action="https://formspree.io/f/xrpezwgo"</code> e <code class="bg-slate-100 px-1 py-0.5 rounded text-slate-800">method="POST"</code>.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-slate-800 mb-1">2. Usando em React / Next.js com Fetch:</h4>
+          <pre class="bg-slate-900 text-slate-200 p-3 rounded-lg overflow-x-auto text-[11px] font-mono">
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  const res = await fetch("https://formspree.io/f/xrpezwgo", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(formData)
+  });
+  if (res.ok) setEnviado(true);
+};</pre>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-slate-800 mb-1">3. Conexão com Google Sheets & Colab:</h4>
+          <p class="leading-relaxed">
+            No painel do <strong>Formspree</strong>, vá na aba <em>Integrations</em> e conecte o formulário <code class="bg-slate-100 px-1 py-0.5 rounded text-slate-800">xrpezwgo</code> ao <strong>Google Sheets</strong>. As respostas atualizarão a planilha em tempo real para alimentação do seu notebook no Colab.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-6 text-center text-xs text-slate-400 font-medium">
+      &copy; 2026 E19 Imóveis e Tecnologia. Todos os direitos reservados.
+    </footer>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('e19Form');
+      const formContainer = document.getElementById('formContainer');
+      const successContainer = document.getElementById('successContainer');
+      const submitBtn = document.getElementById('submitBtn');
+      const entradaInput = document.getElementById('valor_entrada');
+      const toggleGuideBtn = document.getElementById('toggleGuideBtn');
+      const guideContent = document.getElementById('guideContent');
+      const guideIcon = document.getElementById('guideIcon');
+
+      // 1. Currency Formatting Mask for Entry Value (BRL)
+      entradaInput.addEventListener('input', (e) => {
+        let value = e.target.value.replace(/\D/g, '');
+        if (!value) {
+          e.target.value = '';
+          return;
+        }
+        value = (parseInt(value, 10) / 100).toFixed(2) + '';
+        value = value.replace('.', ',');
+        value = value.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+        e.target.value = value;
+      });
+
+      // 2. Expandable Implementation Guide Toggle
+      toggleGuideBtn.addEventListener('click', () => {
+        const isHidden = guideContent.classList.contains('hidden');
+        if (isHidden) {
+          guideContent.classList.remove('hidden');
+          guideIcon.classList.add('rotate-180');
+        } else {
+          guideContent.classList.add('hidden');
+          guideIcon.classList.remove('rotate-180');
+        }
+      });
+
+      // 3. AJAX Submission via Fetch API to Formspree
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // UI Loading state
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+          <i class="fa-solid fa-spinner animate-spin text-sm"></i>
+          <span>Enviando respostas...</span>
+        `;
+
+        const formData = new FormData(form);
+
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+
+          if (response.ok) {
+            // Hide Form & Show Success View
+            formContainer.classList.add('hidden');
+            successContainer.classList.remove('hidden');
+          } else {
+            throw new Error('Falha no envio.');
+          }
+        } catch (error) {
+          alert('Ocorreu um erro ao enviar seu formulário. Por favor, tente novamente ou entre em contato diretamente pelo WhatsApp.');
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = `
+            <span>Enviar e Filtrar Imóveis</span>
+            <i class="fa-solid fa-arrow-right text-sm"></i>
+          `;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
