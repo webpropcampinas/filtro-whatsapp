@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="28.000002mm"
+   height="28.000002mm"
+   viewBox="0 0 28.000002 28.000002"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="LT.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="2.7545174"
+     inkscape:cx="451.80328"
+     inkscape:cy="229.25976"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showgrid="false">
+    <inkscape:grid
+       id="grid3"
+       units="mm"
+       originx="-124.38582"
+       originy="-27.298046"
+       spacingx="0.99999998"
+       spacingy="1"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       enabled="true"
+       visible="false" />
+    <inkscape:page
+       x="0"
+       y="0"
+       width="28.000002"
+       height="28.000002"
+       id="page2"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <linearGradient
+       id="swatch8"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop8" />
+    </linearGradient>
+    <linearGradient
+       id="swatch3"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop3" />
+    </linearGradient>
+    <linearGradient
+       id="swatch2"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop2" />
+    </linearGradient>
+    <linearGradient
+       id="swatch1"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop1" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#swatch1"
+       id="linearGradient8"
+       x1="104.05447"
+       y1="63.132263"
+       x2="125.44948"
+       y2="63.132263"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-124.38582,-27.298047)">
+    <rect
+       style="opacity:0;fill:#000080;stroke:url(#linearGradient8);stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
+       id="rect8"
+       width="21.395012"
+       height="17.183929"
+       x="104.05447"
+       y="54.540298" />
+    <g
+       id="g9"
+       inkscape:export-filename="e19_svg.svg"
+       inkscape:export-xdpi="464.45709"
+       inkscape:export-ydpi="464.45709">
+      <rect
+         style="fill:#f8d210;fill-opacity:1;stroke-width:0.264581"
+         id="rect2-8"
+         width="28"
+         height="28"
+         x="124.38582"
+         y="27.298044"
+         inkscape:export-filename="rect2-8.png"
+         inkscape:export-xdpi="191.6981"
+         inkscape:export-ydpi="191.6981" />
+      <g
+         id="g6-3"
+         transform="matrix(0.99598897,0,0,0.98321419,45.322846,-19.66802)"
+         style="stroke-width:1.01053">
+        <g
+           id="g4-4"
+           style="stroke-width:1.01053">
+          <rect
+             style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.0588235;paint-order:stroke fill markers"
+             id="rect2-5-8-54-4-9-1-6-07-03-5-7-5-46"
+             width="5.9617929"
+             height="1.113163"
+             x="85.037643"
+             y="-67.010765"
+             transform="scale(1,-1)" />
+          <rect
+             style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.0588235;paint-order:stroke fill markers"
+             id="rect2-5-8-54-8-2-0-8-0-63-8-2-6-27-0"
+             width="5.9617929"
+             height="1.113163"
+             x="85.000099"
+             y="-62.554455"
+             transform="scale(1,-1)" />
+          <rect
+             style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.0588235;paint-order:stroke fill markers"
+             id="rect2-5-8-54-8-2-0-8-0-63-8-2-6-27-3-6"
+             width="5.9617929"
+             height="1.113163"
+             x="84.992073"
+             y="-58.12022"
+             transform="scale(1,-1)" />
+        </g>
+        <g
+           id="g3-6"
+           transform="matrix(0.98883725,0,0,0.99329717,1.00344,0.38206757)"
+           style="stroke-width:1.01964">
+          <rect
+             style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.0588235;paint-order:stroke fill markers"
+             id="rect2-5-8-54-4-9-1-6-07-03-5-7-5-1-1"
+             width="6.0127335"
+             height="1.113163"
+             x="96.022354"
+             y="57.001919" />
+          <rect
+             style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.0588235;paint-order:stroke fill markers"
+             id="rect2-5-8-54-8-2-0-8-0-63-8-2-6-27-1-8"
+             width="5.9617929"
+             height="1.113163"
+             x="95.998878"
+             y="61.523235" />
+          <rect
+             style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.0588235;paint-order:stroke fill markers"
+             id="rect2-5-8-54-8-2-0-8-0-63-8-2-6-27-1-4-4"
+             width="5.9617929"
+             height="1.113163"
+             x="96.044617"
+             y="66.018387" />
+          <rect
+             style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.0588235;paint-order:stroke fill markers"
+             id="rect2-5-8-54-1-7-0-4-2-61-0-7-1-6-5-2-9-9"
+             width="5.622438"
+             height="1.1131622"
+             x="56.652126"
+             y="-97.346733"
+             transform="matrix(-0.00411311,0.99999154,-0.99999331,-0.00365818,0,0)" />
+          <rect
+             style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.0588235;paint-order:stroke fill markers"
+             id="rect2-5-8-54-1-7-0-4-2-61-0-7-1-6-5-2-5-6"
+             width="10.125822"
+             height="1.1131788"
+             x="56.335129"
+             y="-102.19227"
+             transform="matrix(-0.00228383,0.99999739,-0.9999783,-0.0065882,0,0)" />
+        </g>
+        <g
+           id="g5-3"
+           style="stroke-width:1.01053">
+          <rect
+             style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.0588235;paint-order:stroke fill markers"
+             id="rect2-5-8-54-4-9-1-6-07-03-5-7-5-4-7"
+             width="2.9900072"
+             height="1.0797842"
+             x="91.817146"
+             y="58.003849"
+             transform="matrix(0.99993829,-0.01110936,0.00303929,0.99999538,0,0)" />
+          <rect
+             style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.0588235;paint-order:stroke fill markers"
+             id="rect2-5-8-54-8-2-0-8-0-63-8-2-6-27-5-8"
+             width="9.1061134"
+             height="1.0957162"
+             x="57.174854"
+             y="-95.180374"
+             transform="matrix(-0.00330321,0.99999454,-0.99996686,-0.00814057,0,0)" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
