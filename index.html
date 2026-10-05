@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>E19 — Seleção de Imóveis</title>
   <meta name="theme-color" content="#F8D210">
-  <link rel="icon" type="image/jpeg" href="favicon.jpg">
+  <link rel="icon" type="image/jpeg" href="Favicon.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -30,13 +30,31 @@
   <main class="max-w-md w-full bg-white rounded-2xl border border-tech/50 shadow-lg p-6 md:p-8">
 
     <header class="mb-6 flex flex-col items-center text-center">
-      <img src="logo.svg" width="64" height="64" class="w-16 h-16 rounded-xl mb-3">
+      <img src="e19_svg.svg" alt="E19" width="64" height="64" class="w-16 h-16 rounded-xl mb-3">
       <h1 class="font-display text-xl font-bold tracking-tight">Alinhamento de Perfil</h1>
       <div class="w-10 h-1 bg-gold rounded-full mt-3"></div>
     </header>
 
     <form id="formFiltro" action="https://formspree.io/f/xrpezwgo" method="POST" class="space-y-4">
       <input type="hidden" name="_subject" value="Novo perfil — E19 Seleção de Imóveis">
+      <input type="hidden" name="origem" id="origem" value="">
+
+      <div>
+        <label class="lbl" for="nome">Seu nome completo</label>
+        <input type="text" id="nome" name="nome" required autocomplete="name" placeholder="Ex: Maria da Silva" class="field">
+      </div>
+
+      <div>
+        <label class="lbl" for="whatsapp">WhatsApp com DDD</label>
+        <input type="tel" inputmode="tel" id="whatsapp" name="whatsapp" required autocomplete="tel" placeholder="(19) 99999-9999" maxlength="15" class="field">
+      </div>
+
+      <div>
+        <label class="lbl" for="email">E-mail <span class="normal-case tracking-normal font-normal text-ink/50">(opcional)</span></label>
+        <input type="email" id="email" name="email" autocomplete="email" placeholder="voce@email.com" class="field">
+      </div>
+
+      <div class="h-px bg-tech/40 my-2"></div>
 
       <div>
         <label class="lbl" for="valor_entrada">1. Valor disponível para Entrada/Sinal</label>
@@ -76,7 +94,7 @@
 
       <div class="pt-2">
         <label class="flex items-start gap-2.5 cursor-pointer text-xs text-ink/70 leading-snug">
-          <input type="checkbox" name="aceite_privacidade" required class="mt-0.5 rounded border-tech accent-[#F8D210]">
+          <input type="checkbox" name="aceite_privacidade" value="Sim" required class="mt-0.5 rounded border-tech accent-[#F8D210]">
           <span>Estou de acordo com a <a href="https://blog.e19.imb.br/politica-privacidade-e19/" target="_blank" rel="noopener" class="text-ink underline font-bold">Política de Privacidade</a> da E19.</span>
         </label>
       </div>
@@ -114,6 +132,19 @@
       }).replace(/\u00a0/g, ' ');
     });
 
+    // Máscara de telefone (DDD + 8/9 dígitos)
+    document.getElementById('whatsapp').addEventListener('input', (e) => {
+      let d = e.target.value.replace(/\D/g, '').slice(0, 11);
+      if (d.length > 6) d = d.replace(/^(\d{2})(\d{4,5})(\d{4}).*/, '($1) $2-$3');
+      else if (d.length > 2) d = d.replace(/^(\d{2})(\d+)/, '($1) $2');
+      else if (d.length) d = '(' + d;
+      e.target.value = d;
+    });
+
+    // Origem do link (ex.: ?ref=instagram ou ?ref=campanha-outubro)
+    document.getElementById('origem').value =
+      new URLSearchParams(location.search).get('ref') || 'direto';
+
     // Envio via fetch (sem recarregar)
     const form = document.getElementById('formFiltro');
     const sucesso = document.getElementById('sucesso');
@@ -122,6 +153,7 @@
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      form.querySelector('[name=_subject]').value = 'Novo perfil — ' + form.nome.value.trim();
       btn.innerText = 'ENVIANDO...';
       btn.disabled = true;
       try {
