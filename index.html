@@ -1,1 +1,114 @@
 index.html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E19 — Seleção de Imóveis</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style> body { font-family: 'DM Sans', sans-serif; } </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex items-center justify-center p-4">
+
+  <div class="max-w-md w-full bg-white rounded-2xl shadow-xl border border-slate-100 p-6 md:p-8">
+    
+    <!-- Header -->
+    <div class="mb-6 text-center">
+      <h1 class="text-3xl font-black tracking-tighter mb-1">E<span class="text-[#F8D210]">19</span></h1>
+      <p class="text-xs uppercase tracking-widest text-slate-400 font-semibold">Alinhamento de Perfil</p>
+    </div>
+
+    <!-- Bloco do Formulário -->
+    <form id="formFiltro" action="https://formspree.io/f/xrpezwgo" method="POST" class="space-y-5">
+      
+      <!-- 1. Entrada -->
+      <div>
+        <label class="block text-xs uppercase tracking-widest font-bold text-slate-600 mb-2">1. Valor disponível para Entrada/Sinal</label>
+        <input type="text" name="valor_entrada" required placeholder="Ex: R$ 30.000,00" 
+               class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100 outline-none">
+      </div>
+
+      <!-- 2. Composição de Renda -->
+      <div>
+        <label class="block text-xs uppercase tracking-widest font-bold text-slate-600 mb-2">2. Composição de Renda / Decisão</label>
+        <select name="composicao_renda" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100 outline-none">
+          <option value="" disabled selected>Selecione uma opção...</option>
+          <option value="Apenas eu">Apenas eu</option>
+          <option value="Com cônjuge/parceiro(a)">Com cônjuge / parceiro(a)</option>
+          <option value="Com familiar">Com familiar</option>
+        </select>
+      </div>
+
+      <!-- 3. Pendências -->
+      <div>
+        <label class="block text-xs uppercase tracking-widest font-bold text-slate-600 mb-2">3. Alguma pendência prévia a resolver?</label>
+        <select name="pendencias" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100 outline-none">
+          <option value="" disabled selected>Selecione uma opção...</option>
+          <option value="Nenhuma, tudo OK">Nenhuma, tudo certo</option>
+          <option value="Análise / Uso do FGTS">Análise / Uso de FGTS</option>
+          <option value="Aprovação prévia no banco">Aprovação prévia no banco</option>
+          <option value="Venda de outro imóvel/bem">Venda de outro imóvel/bem</option>
+        </select>
+      </div>
+
+      <!-- 4. Prazo de Mudança -->
+      <div>
+        <label class="block text-xs uppercase tracking-widest font-bold text-slate-600 mb-2">4. Prazo desejado para mudança</label>
+        <select name="prazo_mudanca" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100 outline-none">
+          <option value="" disabled selected>Selecione uma opção...</option>
+          <option value="Imediato (Pronto para morar)">Imediato (Imóvel pronto)</option>
+          <option value="Até 12 meses">Até 12 meses</option>
+          <option value="Na planta (24+ meses)">Na planta (24+ meses)</option>
+        </select>
+      </div>
+
+      <!-- Botão Enviar -->
+      <button type="submit" id="btnSubmit" class="w-full bg-[#F8D210] hover:bg-yellow-300 text-slate-900 font-bold text-xs uppercase tracking-widest py-4 rounded-xl shadow-md transition-all">
+        Enviar e Buscar Imóveis →
+      </button>
+    </form>
+
+    <!-- Tela de Sucesso + Botão GMN (Oculta por padrão) -->
+    <div id="sucesso" class="hidden text-center py-6 space-y-4">
+      <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto text-xl font-bold">✓</div>
+      <h2 class="text-lg font-bold text-slate-800">Respostas enviadas com sucesso!</h2>
+      <p class="text-xs text-slate-500 leading-relaxed">Já estamos separando as melhores opções para o seu perfil. Enquanto preparamos seu atendimento, nos ajude deixando uma avaliação rápida:</p>
+      
+      <a href="https://g.page/r/SEU_LINK_DIRETO_GMN/review" target="_blank" 
+         class="inline-block w-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-widest py-3.5 rounded-xl transition-all">
+        ⭐ Avaliar no Google Meu Negócio
+      </a>
+    </div>
+
+  </div>
+
+  <script>
+    const form = document.getElementById('formFiltro');
+    const sucesso = document.getElementById('sucesso');
+    const btnSubmit = document.getElementById('btnSubmit');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      btnSubmit.innerText = "ENVIANDO...";
+      btnSubmit.disabled = true;
+
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        form.classList.add('hidden');
+        sucesso.classList.remove('hidden');
+      } else {
+        alert("Ocorreu um erro no envio. Tente novamente.");
+        btnSubmit.innerText = "Enviar e Buscar Imóveis →";
+        btnSubmit.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
