@@ -1,64 +1,191 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+  <!-- ============================================================
+       META / SEO
+       ============================================================ -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>E19 — Seleção de Imóveis</title>
   <meta name="theme-color" content="#F8D210">
   <link rel="icon" type="image/jpeg" href="favicon.jpg">
+
+  <!-- Metadados Básicos -->
+  <title>E19 Imóveis | Imobiliária em Campinas | Venda e Locação</title>
+  <meta name="description" content="A E19 Imóveis (CRECI 50608-J) une tecnologia e atendimento consultivo em Campinas. Encontre casas e apartamentos à venda ou anuncie com a maior vitrine da América Latina via Marketplace QuintoAndar.">
+  <meta name="keywords" content="E19 Imóveis, imobiliária Campinas, comprar imóvel Campinas, alugar apartamento Campinas, CRECI 50608-J, QuintoAndar Campinas, Cambuí, Barão Geraldo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.e19.imb.br/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.e19.imb.br/">
+  <meta property="og:title" content="E19 Imóveis | Imobiliária em Campinas | Venda e Locação">
+  <meta property="og:description" content="Tecnologia e foco no retorno do seu patrimônio. Encontre casas e apartamentos nas melhores regiões de Campinas ou simplifique a venda do seu imóvel conosco.">
+  <meta property="og:image" content="https://e19.imb.br">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://www.e19.imb.br/">
+  <meta name="twitter:title" content="E19 Imóveis | Imobiliária em Campinas">
+  <meta name="twitter:description" content="A imobiliária de Campinas que une atendimento consultivo e a segurança do Marketplace QuintoAndar para acelerar seus negócios.">
+  <meta name="twitter:image" content="https://e19.imb.br">
+
+  <!-- Dados estruturados (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "name": "E19 Imóveis e Tecnologia Ltda",
+    "alternateName": "E19 Imóveis",
+    "url": "https://www.e19.imb.br/",
+    "email": "info@e-19.com.br",
+    "telephone": ["+551940629091", "+5519996140957"],
+    "identifier": "CRECI 50608-J",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Avenida Imperatriz Dona Tereza Cristina, 637, Sala 05 S",
+      "addressLocality": "Campinas",
+      "addressRegion": "SP",
+      "postalCode": "13100-200",
+      "addressCountry": "BR"
+    },
+    "sameAs": [
+      "https://www.facebook.com/e19imoveis",
+      "https://www.instagram.com/e19imoveisetecnologia",
+      "https://youtube.com/@E19-imoveis",
+      "https://blog.e19.imb.br/"
+    ]
+  }
+  </script>
+
+  <!-- ============================================================
+       FONTES
+       ============================================================ -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- ============================================================
+       TAILWIND (CDN) + CONFIGURAÇÃO DE TEMA
+       ============================================================ -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      theme: { extend: {
-        colors: { gold: '#F8D210', tech: '#B2B2B2', milk: '#F9F9F9', ink: '#1A1A1A' },
-        fontFamily: { display: ['"Space Grotesk"', 'sans-serif'], sans: ['"DM Sans"', 'sans-serif'] }
-      } }
-    }
+      theme: {
+        extend: {
+          colors: {
+            gold: '#F8D210',
+            tech: '#B2B2B2',
+            milk: '#F9F9F9',
+            ink:  '#1A1A1A'
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            sans:    ['"DM Sans"', 'sans-serif']
+          }
+        }
+      }
+    };
   </script>
+
+  <!-- ============================================================
+       ESTILOS CUSTOMIZADOS
+       ============================================================ -->
   <style>
-    body { font-family: 'DM Sans', sans-serif; }
-    .field { width:100%; background:#fff; border:1px solid #B2B2B2; border-radius:.75rem; padding:.75rem 1rem; font-size:.875rem; color:#1A1A1A; outline:none; transition:border-color .15s, box-shadow .15s; }
-    .field:focus { border-color:#F8D210; box-shadow:0 0 0 3px rgba(248,210,16,.35); }
-    .lbl { display:block; font-family:'Space Grotesk',sans-serif; font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; font-weight:700; color:#1A1A1A; margin-bottom:.4rem; }
+    :root {
+      --gold: #F8D210;
+      --gold-ring: rgba(248, 210, 16, .35);
+      --tech: #B2B2B2;
+      --ink: #1A1A1A;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    /* Campo de formulário */
+    .field {
+      width: 100%;
+      background: #fff;
+      border: 1px solid var(--tech);
+      border-radius: .75rem;
+      padding: .75rem 1rem;
+      font-size: .875rem;
+      color: var(--ink);
+      outline: none;
+      transition: border-color .15s, box-shadow .15s;
+    }
+
+    .field:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px var(--gold-ring);
+    }
+
+    /* Rótulo de campo */
+    .lbl {
+      display: block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: .7rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: .4rem;
+    }
   </style>
 </head>
+
 <body class="bg-milk text-ink min-h-screen flex items-center justify-center p-4">
 
   <main class="max-w-md w-full bg-white rounded-2xl border border-tech/50 shadow-lg p-6 md:p-8">
 
+    <!-- ==========================================================
+         CABEÇALHO
+         ========================================================== -->
     <header class="mb-6 flex flex-col items-center text-center">
       <img src="logo.svg" alt="E19" width="64" height="64" class="w-16 h-16 rounded-xl mb-3">
       <h1 class="font-display text-xl font-bold tracking-tight">Alinhamento de Perfil</h1>
       <div class="w-10 h-1 bg-gold rounded-full mt-3"></div>
     </header>
 
+    <!-- ==========================================================
+         FORMULÁRIO
+         ========================================================== -->
     <form id="formFiltro" action="https://formspree.io/f/xrpezwgo" method="POST" class="space-y-4">
+
+      <!-- Campos ocultos -->
       <input type="hidden" name="_subject" value="Novo perfil — E19 Seleção de Imóveis">
       <input type="hidden" name="origem" id="origem" value="">
 
+      <!-- Dados de contato -->
       <div>
         <label class="lbl" for="nome">Seu nome completo</label>
-        <input type="text" id="nome" name="nome" required autocomplete="name" placeholder="Ex: Maria da Silva" class="field">
+        <input type="text" id="nome" name="nome" required autocomplete="name"
+               placeholder="Ex: Maria da Silva" class="field">
       </div>
 
       <div>
         <label class="lbl" for="whatsapp">WhatsApp com DDD</label>
-        <input type="tel" inputmode="tel" id="whatsapp" name="whatsapp" required autocomplete="tel" placeholder="(19) 99999-9999" maxlength="15" class="field">
+        <input type="tel" inputmode="tel" id="whatsapp" name="whatsapp" required autocomplete="tel"
+               placeholder="(19) 99999-9999" maxlength="15" class="field">
       </div>
 
       <div>
-        <label class="lbl" for="email">E-mail <span class="normal-case tracking-normal font-normal text-ink/50">(opcional)</span></label>
-        <input type="email" id="email" name="email" autocomplete="email" placeholder="voce@email.com" class="field">
+        <label class="lbl" for="email">
+          E-mail <span class="normal-case tracking-normal font-normal text-ink/50">(opcional)</span>
+        </label>
+        <input type="email" id="email" name="email" autocomplete="email"
+               placeholder="voce@email.com" class="field">
       </div>
 
       <div class="h-px bg-tech/40 my-2"></div>
 
+      <!-- Perguntas de perfil -->
       <div>
         <label class="lbl" for="valor_entrada">1. Valor disponível para Entrada/Sinal</label>
-        <input type="text" inputmode="numeric" id="valor_entrada" name="valor_entrada" required placeholder="Ex: R$ 30.000,00" class="field">
+        <input type="text" inputmode="numeric" id="valor_entrada" name="valor_entrada" required
+               placeholder="Ex: R$ 30.000,00" class="field">
       </div>
 
       <div>
@@ -92,85 +219,172 @@
         </select>
       </div>
 
+      <!-- Aceite de privacidade -->
       <div class="pt-2">
         <label class="flex items-start gap-2.5 cursor-pointer text-xs text-ink/70 leading-snug">
-          <input type="checkbox" name="aceite_privacidade" value="Sim" required class="mt-0.5 rounded border-tech accent-[#F8D210]">
-          <span>Estou de acordo com a <a href="https://blog.e19.imb.br/politica-privacidade-e19/" target="_blank" rel="noopener" class="text-ink underline font-bold">Política de Privacidade</a> da E19.</span>
+          <input type="checkbox" name="aceite_privacidade" value="Sim" required
+                 class="mt-0.5 rounded border-tech accent-[#F8D210]">
+          <span>
+            Estou de acordo com a
+            <a href="https://blog.e19.imb.br/politica-privacidade-e19/" target="_blank" rel="noopener"
+               class="text-ink underline font-bold">Política de Privacidade</a>
+            da E19.
+          </span>
         </label>
       </div>
 
-      <button type="submit" id="btnSubmit" class="w-full bg-gold hover:brightness-95 text-ink font-display font-bold text-xs uppercase tracking-widest py-4 rounded-xl transition active:scale-[0.99] mt-2">
+      <!-- Botão de envio -->
+      <button type="submit" id="btnSubmit"
+              class="w-full bg-gold hover:brightness-95 text-ink font-display font-bold text-xs uppercase tracking-widest py-4 rounded-xl transition active:scale-[0.99] mt-2">
         Enviar e Buscar Imóveis →
       </button>
     </form>
 
+    <!-- ==========================================================
+         MENSAGEM DE SUCESSO (exibida após o envio)
+         ========================================================== -->
     <section id="sucesso" class="hidden text-center py-6 space-y-4" aria-live="polite">
       <div class="w-12 h-12 bg-gold text-ink rounded-full flex items-center justify-center mx-auto text-xl font-bold">✓</div>
       <h2 class="font-display text-lg font-bold">Respostas enviadas com sucesso!</h2>
-      <p class="text-sm text-ink/70 leading-relaxed">Já estamos separando as melhores opções para o seu perfil. Enquanto preparamos seu atendimento, nos ajude deixando uma avaliação rápida:</p>
+      <p class="text-sm text-ink/70 leading-relaxed">
+        Já estamos separando as melhores opções para o seu perfil.
+        Enquanto preparamos seu atendimento, nos ajude deixando uma avaliação rápida:
+      </p>
       <a href="https://g.page/r/CRLpfR04xfRkEBM/review" target="_blank" rel="noopener"
          class="inline-block w-full bg-ink hover:bg-black text-white font-display font-bold text-xs uppercase tracking-widest py-3.5 rounded-xl transition">
         ⭐ Avaliar no Google Meu Negócio
       </a>
     </section>
 
-    <footer class="mt-6 pt-4 border-t border-tech/40 text-center">
-      <a href="https://blog.e19.imb.br/politica-privacidade-e19/" target="_blank" rel="noopener" class="font-display text-[10px] uppercase tracking-widest text-ink/50 hover:underline">
+    <!-- ==========================================================
+         RODAPÉ
+         ========================================================== -->
+    <footer class="mt-6 pt-4 border-t border-tech/40 text-center space-y-3">
+
+      <!-- Dados cadastrais -->
+      <address class="not-italic text-[11px] text-ink/60 leading-relaxed">
+        <strong class="text-ink/80">E19 Imóveis e Tecnologia Ltda</strong><br>
+        Avenida Imperatriz Dona Tereza Cristina, 637, Sala 05 S<br>
+        Jardim Guarani — Campinas/SP — CEP 13100-200<br>
+        CRECI: 50608-J ·
+        <a href="https://e-19.com.br/" target="_blank" rel="noopener" class="underline hover:text-ink">e-19.com.br</a>
+      </address>
+
+      <!-- Contato -->
+      <p class="text-[11px] text-ink/60 leading-relaxed">
+        Venda:
+        <a href="tel:+551940629091" class="underline hover:text-ink">+55 (19) 4062-9091</a> ·
+        <a href="tel:+5519996140957" class="underline hover:text-ink">+55 (19) 99614-0957</a><br>
+        <a href="https://wa.me/551940629091" target="_blank" rel="noopener" class="underline hover:text-ink">WhatsApp: (19) 4062-9091</a> ·
+        <a href="mailto:info@e-19.com.br" class="underline hover:text-ink">info@e-19.com.br</a>
+      </p>
+
+      <!-- Redes sociais -->
+      <nav aria-label="Redes sociais" class="flex flex-wrap justify-center gap-x-3 gap-y-1 font-display text-[10px] uppercase tracking-widest text-ink/60">
+        <a href="https://www.facebook.com/e19imoveis" target="_blank" rel="noopener" class="hover:underline">Facebook</a>
+        <a href="https://www.instagram.com/e19imoveisetecnologia" target="_blank" rel="noopener" class="hover:underline">Instagram</a>
+        <a href="https://youtube.com/@E19-imoveis" target="_blank" rel="noopener" class="hover:underline">YouTube</a>
+        <a href="https://blog.e19.imb.br/" target="_blank" rel="noopener" class="hover:underline">Blog</a>
+      </nav>
+
+      <a href="https://blog.e19.imb.br/politica-privacidade-e19/" target="_blank" rel="noopener"
+         class="block font-display text-[10px] uppercase tracking-widest text-ink/50 hover:underline">
         Política de Privacidade E19
       </a>
+      <p class="font-display text-[10px] tracking-widest text-ink/50">
+        powered by
+        <a href="https://c2c.app.br/" target="_blank" rel="noopener"
+           class="text-ink font-bold hover:underline">c2c.app.br</a>
+      </p>
     </footer>
+
   </main>
 
+  <!-- ============================================================
+       SCRIPT
+       ============================================================ -->
   <script>
-    // Máscara BRL
-    const inputEntrada = document.getElementById('valor_entrada');
-    inputEntrada.addEventListener('input', (e) => {
-      const digits = e.target.value.replace(/\D/g, '');
-      if (!digits) { e.target.value = ''; return; }
-      e.target.value = (parseInt(digits, 10) / 100).toLocaleString('pt-BR', {
-        style: 'currency', currency: 'BRL'
-      }).replace(/\u00a0/g, ' ');
-    });
+    (() => {
+      'use strict';
 
-    // Máscara de telefone (DDD + 8/9 dígitos)
-    document.getElementById('whatsapp').addEventListener('input', (e) => {
-      let d = e.target.value.replace(/\D/g, '').slice(0, 11);
-      if (d.length > 6) d = d.replace(/^(\d{2})(\d{4,5})(\d{4}).*/, '($1) $2-$3');
-      else if (d.length > 2) d = d.replace(/^(\d{2})(\d+)/, '($1) $2');
-      else if (d.length) d = '(' + d;
-      e.target.value = d;
-    });
+      /* ---------- Referências do DOM ---------- */
+      const form          = document.getElementById('formFiltro');
+      const sucesso       = document.getElementById('sucesso');
+      const btnSubmit     = document.getElementById('btnSubmit');
+      const inputEntrada  = document.getElementById('valor_entrada');
+      const inputWhatsapp = document.getElementById('whatsapp');
+      const inputOrigem   = document.getElementById('origem');
+      const btnLabel      = btnSubmit.innerText;
 
-    // Origem do link (ex.: ?ref=instagram ou ?ref=campanha-outubro)
-    document.getElementById('origem').value =
-      new URLSearchParams(location.search).get('ref') || 'direto';
+      /* ---------- Máscaras ---------- */
 
-    // Envio via fetch (sem recarregar)
-    const form = document.getElementById('formFiltro');
-    const sucesso = document.getElementById('sucesso');
-    const btn = document.getElementById('btnSubmit');
-    const label = btn.innerText;
+      // Moeda BRL (ex.: R$ 30.000,00)
+      function maskCurrency(e) {
+        const digits = e.target.value.replace(/\D/g, '');
+        if (!digits) {
+          e.target.value = '';
+          return;
+        }
+        e.target.value = (parseInt(digits, 10) / 100)
+          .toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+          .replace(/\u00a0/g, ' ');
+      }
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      form.querySelector('[name=_subject]').value = 'Novo perfil — ' + form.nome.value.trim();
-      btn.innerText = 'ENVIANDO...';
-      btn.disabled = true;
-      try {
-        const r = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        });
-        if (!r.ok) throw new Error();
+      // Telefone (DDD + 8/9 dígitos)
+      function maskPhone(e) {
+        let d = e.target.value.replace(/\D/g, '').slice(0, 11);
+        if (d.length > 6)      d = d.replace(/^(\d{2})(\d{4,5})(\d{4}).*/, '($1) $2-$3');
+        else if (d.length > 2) d = d.replace(/^(\d{2})(\d+)/, '($1) $2');
+        else if (d.length)     d = '(' + d;
+        e.target.value = d;
+      }
+
+      /* ---------- Origem do link (?ref=instagram, ?ref=campanha-outubro...) ---------- */
+      function setOrigin() {
+        inputOrigem.value = new URLSearchParams(location.search).get('ref') || 'direto';
+      }
+
+      /* ---------- Estado do botão ---------- */
+      function setLoading(isLoading) {
+        btnSubmit.disabled = isLoading;
+        btnSubmit.innerText = isLoading ? 'ENVIANDO...' : btnLabel;
+      }
+
+      function showSuccess() {
         form.classList.add('hidden');
         sucesso.classList.remove('hidden');
-      } catch (_) {
-        alert('Não foi possível enviar. Verifique sua conexão e tente novamente.');
-        btn.innerText = label;
-        btn.disabled = false;
       }
-    });
+
+      /* ---------- Envio via fetch (sem recarregar a página) ---------- */
+      async function handleSubmit(e) {
+        e.preventDefault();
+
+        form.querySelector('[name=_subject]').value =
+          'Novo perfil — ' + form.nome.value.trim();
+
+        setLoading(true);
+
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (!response.ok) throw new Error();
+          showSuccess();
+        } catch (_) {
+          alert('Não foi possível enviar. Verifique sua conexão e tente novamente.');
+          setLoading(false);
+        }
+      }
+
+      /* ---------- Inicialização ---------- */
+      inputEntrada.addEventListener('input', maskCurrency);
+      inputWhatsapp.addEventListener('input', maskPhone);
+      form.addEventListener('submit', handleSubmit);
+      setOrigin();
+    })();
   </script>
 </body>
+
 </html>
